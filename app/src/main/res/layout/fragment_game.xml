@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    tools:context=".GameFragment">
+
+    <TextView
+        android:id="@+id/displayTv"
+        android:layout_marginTop="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Player X's Turn"
+        android:textSize="34sp"
+        android:layout_marginBottom="16dp"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/Button1"
+            android:layout_width="50dp"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:textSize="50sp"
+            android:layout_margin="10dp"
+            />
+
+        <Button
+            android:id="@+id/Button2"
+            android:layout_width="50dp"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:textSize="50sp"
+            android:layout_margin="10dp"
+            />
+        <Button
+            android:id="@+id/Button3"
+            android:layout_width="50dp"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:textSize="50sp"
+            android:layout_margin="10dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/Button4"
+            android:layout_width="50dp"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:textSize="50sp"
+            android:layout_margin="10dp"
+            />
+
+        <Button
+            android:id="@+id/Button5"
+            android:layout_width="50dp"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:textSize="50sp"
+            android:layout_margin="10dp"
+            />
+        <Button
+            android:id="@+id/Button6"
+            android:layout_width="50dp"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:textSize="50sp"
+            android:layout_margin="10dp"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/Button7"
+            android:layout_width="50dp"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:textSize="50sp"
+            android:layout_margin="10dp"
+            />
+
+        <Button
+            android:id="@+id/Button8"
+            android:layout_width="50dp"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:textSize="50sp"
+            android:layout_margin="10dp"
+            />
+        <Button
+            android:id="@+id/Button9"
+            android:layout_width="50dp"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:textSize="50sp"
+            android:layout_margin="10dp"
+            />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="RESET"
+        android:textColor="@color/white"
+        android:layout_marginTop="40dp"
+        android:textSize="30sp"
+        />
+
+
+</LinearLayout>

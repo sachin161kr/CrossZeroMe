@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NameSelectionScreen">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/enterplayername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Player Names"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="200dp"
+        />
+
+    <EditText
+        android:id="@+id/name_playerX"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:maxLength="10"
+        android:hint="Enter Name"
+        android:textSize="30sp"
+        android:layout_marginTop="270dp"
+        android:layout_marginLeft="180dp"
+        />
+
+    <EditText
+        android:maxLines="1"
+        android:maxLength="10"
+        android:id="@+id/name_playerO"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Name"
+        android:textSize="30sp"
+        android:layout_marginTop="340dp"
+        android:layout_marginLeft="180dp"
+        />
+
+    <TextView
+        android:id="@+id/playerX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player X :"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginTop="280dp"
+        android:layout_marginLeft="20dp"
+        />
+    <TextView
+        android:id="@+id/playerO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player O :"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="20dp"
+        />
+
+    <Button
+        android:id="@+id/start_button"
+        android:layout_width="280dp"
+        android:layout_marginTop="450dp"
+        android:text="START"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        />
+
+
+</FrameLayout>
