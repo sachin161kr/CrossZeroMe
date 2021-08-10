@@ -1,10 +1,13 @@
 package com.sachinkumar.crosszerome
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_name_selection_screen.*
 import kotlinx.android.synthetic.main.fragment_name_selection_screen.view.*
@@ -41,9 +44,19 @@ class NameSelectionScreen : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_name_selection_screen, container, false)
 
-        view.start_button.setOnClickListener {
 
-            Navigation.findNavController(view).navigate(R.id.action_nameSelectionScreen_to_gameFragment)
+
+        view.start_button.setOnClickListener {
+            if(view.name_playerX.text.length !=0 && view.name_playerO.text.length!=0)
+            {
+                val bundle = bundleOf("playerX" to view.name_playerX.text.toString() , "playerO" to view.name_playerO.text.toString())
+                Navigation.findNavController(view).navigate(R.id.action_nameSelectionScreen_to_gameFragment,bundle)
+            }
+            else {
+                Toast.makeText(activity,"Player names cannot be empty!",Toast.LENGTH_SHORT).show()
+            }
+
+
         }
 
 

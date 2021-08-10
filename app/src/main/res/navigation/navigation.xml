@@ -37,5 +37,12 @@
         android:id="@+id/gameFragment"
         android:name="com.sachinkumar.crosszerome.GameFragment"
         android:label="fragment_game"
-        tools:layout="@layout/fragment_game" />
+        tools:layout="@layout/fragment_game" >
+        <argument
+            android:name="playerX"
+            app:argType="string"/>
+        <argument
+            android:name="playerO"
+            app:argType="string"/>
+    </fragment>
 </navigation>

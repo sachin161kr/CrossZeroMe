@@ -24,9 +24,6 @@ class GameFragment : Fragment() , View.OnClickListener{
     private var param1: String? = null
     private var param2: String? = null
 
-   var playerX = "Player X"
-   var playerO = "Player O"
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,13 +32,18 @@ class GameFragment : Fragment() , View.OnClickListener{
             param2 = it.getString(ARG_PARAM2)
         }
 
+
+        playerName1 = arguments?.getString("playerX").toString()
+        playerName2 = arguments?.getString("playerO").toString()
+
+
     }
 
     var PLAYER = true
     var TURN_COUNT = 0
 
-    val playerName1 = playerX
-    val playerName2 = playerO
+    var playerName1 = "Player X"
+    var playerName2 = "Player O"
 
     var boardStatus = arrayOf(arrayOf(-1, -2, -3), arrayOf(-4, -5, -6), arrayOf(-7, -8, -9))
     lateinit var board: Array<Array<Button>>
@@ -53,6 +55,12 @@ class GameFragment : Fragment() , View.OnClickListener{
         // Inflate the layout for this fragment
 
         val view = inflater.inflate(R.layout.fragment_game, container, false)
+
+        val firstTxt = arguments?.getString("playerX")
+
+
+            view.displayTv.text = "${firstTxt}'s Turn"
+
         board = arrayOf(
             arrayOf(view.Button1, view.Button2, view.Button3),
             arrayOf(view.Button4, view.Button5, view.Button6),
@@ -80,25 +88,6 @@ class GameFragment : Fragment() , View.OnClickListener{
     }
 
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment GameFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            GameFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 
     private fun initializeBoardStatus() {
         boardStatus = arrayOf(arrayOf(-1, -2, -3), arrayOf(-4, -5, -6), arrayOf(-7, -8, -9))
