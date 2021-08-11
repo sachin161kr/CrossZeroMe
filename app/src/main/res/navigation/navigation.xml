@@ -18,6 +18,14 @@
             app:popEnterAnim="@anim/nav_default_enter_anim"
             app:popExitAnim="@anim/nav_default_exit_anim"
             app:popUpTo="@id/welcomeScreen" />
+        <action
+            android:id="@+id/action_welcomeScreen_to_multiplayer_AI"
+            app:destination="@id/multiplayer_AI"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/welcomeScreen" />
     </fragment>
     <fragment
         android:id="@+id/nameSelectionScreen"
@@ -45,4 +53,9 @@
             android:name="playerO"
             app:argType="string"/>
     </fragment>
+    <fragment
+        android:id="@+id/multiplayer_AI"
+        android:name="com.sachinkumar.crosszerome.multiplayer_AI"
+        android:label="fragment_multiplayer__a_i"
+        tools:layout="@layout/fragment_multiplayer__a_i" />
 </navigation>

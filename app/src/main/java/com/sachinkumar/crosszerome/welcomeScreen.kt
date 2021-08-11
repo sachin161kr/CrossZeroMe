@@ -49,6 +49,10 @@ class welcomeScreen : Fragment() {
         view.multiPlayer.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_welcomeScreen_to_nameSelectionScreen)
         }
+
+        view.singlePlayer.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_welcomeScreen_to_multiplayer_AI)
+        }
         return view
     }
 
