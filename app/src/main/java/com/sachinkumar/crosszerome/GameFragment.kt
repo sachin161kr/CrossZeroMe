@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import kotlinx.android.synthetic.main.fragment_game.view.*
 import kotlinx.android.synthetic.main.fragment_name_selection_screen.*
+import kotlinx.android.synthetic.main.fragment_name_selection_screen.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,6 +42,9 @@ class GameFragment : Fragment() , View.OnClickListener{
 
     var PLAYER = true
     var TURN_COUNT = 0
+
+    var scoreX = 0
+    var scoreO = 0
 
     var playerName1 = "Player X"
     var playerName2 = "Player O"
@@ -159,11 +163,13 @@ class GameFragment : Fragment() , View.OnClickListener{
             {
                 //Log.d("my msg", "checkWinner: ${boardStatus[0][0]} ${boardStatus[0][1]} ${boardStatus[0][2]}")
                 if(boardStatus[i][0]==1)
-                {
+                {   scoreX++
+                    requireView().point_X.text = "X : $scoreX"
                     updateDisplay("$playerName1 Won")
                 }
                 else
-                {
+                {   scoreO++
+                    requireView().point_O.text = "O : $scoreO"
                     updateDisplay("$playerName2 Won")
                 }
 
@@ -178,10 +184,14 @@ class GameFragment : Fragment() , View.OnClickListener{
                 //Log.d("my msg", "checkWinner: ${boardStatus[0][0]} ${boardStatus[0][1]} ${boardStatus[0][2]}")
                 if(boardStatus[0][j]==1)
                 {
+                    scoreX++
+                    requireView().point_X.text = "X : $scoreX"
                     updateDisplay("$playerName1 Won")
                 }
                 else
                 {
+                    scoreO++
+                    requireView().point_O.text = "O : $scoreO"
                     updateDisplay("$playerName2 Won")
                 }
 
@@ -193,10 +203,14 @@ class GameFragment : Fragment() , View.OnClickListener{
         {
             if(boardStatus[0][0]==1)
             {
+                scoreX++
+                requireView().point_X.text = "X : $scoreX"
                 updateDisplay("$playerName1 Won")
             }
             else
             {
+                scoreO++
+                requireView().point_O.text = "O : $scoreO"
                 updateDisplay("$playerName2 Won")
             }
 
@@ -206,10 +220,15 @@ class GameFragment : Fragment() , View.OnClickListener{
         {
             if(boardStatus[0][2]==1)
             {
+                scoreX++
+                requireView().point_X.text = "X : $scoreX"
                 updateDisplay("$playerName1 Won")
+
             }
             else
             {
+                scoreO++
+                requireView().point_O.text = "O : $scoreO"
                 updateDisplay("$playerName2 Won")
             }
 
@@ -229,6 +248,7 @@ class GameFragment : Fragment() , View.OnClickListener{
         requireView().displayTv.text = s
         if(s.contains("Won"))
         {
+
             disableAll()
         }
     }
