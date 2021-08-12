@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Preferences">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:textSize="30sp"
+        android:layout_gravity="center_horizontal"
+        android:text="Select Difficulty Level" />
+
+    <RadioGroup
+        android:id="@+id/difficulty"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="210dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/beginner"
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Beginner"
+            android:textSize="25sp"
+            />
+
+        <RadioButton
+            android:id="@+id/jod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I am Jod"
+            android:textSize="25sp"
+            />
+
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Gameboard Size"
+        android:textSize="30sp"
+        android:layout_marginTop="350dp"/>
+
+    <RadioGroup
+        android:id="@+id/gameboardsize"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="410dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/smallboard"
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3 X 3"
+            android:textSize="25sp"
+            />
+
+        <RadioButton
+            android:id="@+id/largeboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5 X 5"
+            android:textSize="25sp"
+            />
+
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/preferencesSelected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CONTINUE"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="540dp"
+        android:textAlignment="center"/>
+
+</FrameLayout>

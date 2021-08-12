@@ -11,16 +11,8 @@
         android:label="fragment_welcome_screen"
         tools:layout="@layout/fragment_welcome_screen" >
         <action
-            android:id="@+id/action_welcomeScreen_to_nameSelectionScreen"
-            app:destination="@id/nameSelectionScreen"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_enter_anim"
-            app:popExitAnim="@anim/nav_default_exit_anim"
-            app:popUpTo="@id/welcomeScreen" />
-        <action
-            android:id="@+id/action_welcomeScreen_to_multiplayer_AI"
-            app:destination="@id/multiplayer_AI"
+            android:id="@+id/action_welcomeScreen_to_preferences"
+            app:destination="@id/preferences"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
@@ -58,4 +50,20 @@
         android:name="com.sachinkumar.crosszerome.multiplayer_AI"
         android:label="fragment_multiplayer__a_i"
         tools:layout="@layout/fragment_multiplayer__a_i" />
+        <argument android:name="difficulty" app:argType="string"/>
+    <fragment
+        android:id="@+id/preferences"
+        android:name="com.sachinkumar.crosszerome.Preferences"
+        android:label="fragment_preferences"
+        tools:layout="@layout/fragment_preferences" >
+        <argument android:name="buttonselected" app:argType="string"/>
+        <action
+            android:id="@+id/action_preferences_to_multiplayer_AI"
+            app:destination="@id/multiplayer_AI"
+            app:popUpTo="@id/preferences" />
+        <action
+            android:id="@+id/action_preferences_to_nameSelectionScreen"
+            app:destination="@id/nameSelectionScreen"
+            app:popUpTo="@id/preferences" />
+    </fragment>
 </navigation>

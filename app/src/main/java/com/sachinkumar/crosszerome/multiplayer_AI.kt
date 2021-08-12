@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import kotlinx.android.synthetic.main.fragment_game.view.*
 import kotlinx.android.synthetic.main.fragment_multiplayer__a_i.view.*
+import kotlinx.android.synthetic.main.fragment_preferences.*
 
 class Move {
     var row : Int = 0
@@ -36,11 +37,16 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+
     }
 
     lateinit var board: Array<Array<Button>>
+    var gameDifficulty : String? = ""
 
     var charBoard = arrayOf(arrayOf("_","_","_"),arrayOf("_","_","_"),arrayOf("_","_","_"))
+
+    var list = arrayListOf(0,1,2,3,4,5,6,7,8)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,7 +54,7 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_multiplayer__a_i, container, false)
-
+        gameDifficulty = arguments?.getString("difficulty")
         view.displayTv_M.text = "You vs Computer"
 
         board = arrayOf(
@@ -75,6 +81,7 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
                     charBoard[i][j] = "_"
                 }
             }
+            list = arrayListOf(0,1,2,3,4,5,6,7,8)
           view.displayTv_M.text = "You vs Computer"
         }
 
@@ -91,6 +98,7 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
                         isEnabled = false
                     }
                     charBoard[0][0] = "X"
+                    list.remove(0)
                     checkWinner()
                 }
                 R.id.Button2_M -> {
@@ -99,6 +107,7 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
                         isEnabled = false
                     }
                     charBoard[0][1] = "X"
+                    list.remove(1)
                     checkWinner()
                 }
                 R.id.Button3_M -> {
@@ -107,6 +116,7 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
                         isEnabled = false
                     }
                     charBoard[0][2] = "X"
+                    list.remove(2)
                     checkWinner()
 //
                 }
@@ -116,6 +126,7 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
                         isEnabled = false
                     }
                     charBoard[1][0] = "X"
+                    list.remove(3)
                     checkWinner()
 //
                 }
@@ -126,6 +137,7 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
                     }
 
                     charBoard[1][1] = "X"
+                    list.remove(4)
 
                     checkWinner()
 //
@@ -136,6 +148,7 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
                         isEnabled = false
                     }
                     charBoard[1][2] = "X"
+                    list.remove(5)
 
                     checkWinner()
                 }
@@ -145,6 +158,7 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
                         isEnabled = false
                     }
                     charBoard[2][0] = "X"
+                    list.remove(6)
                     checkWinner()
                 }
                 R.id.Button8_M -> {
@@ -153,6 +167,7 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
                         isEnabled = false
                     }
                     charBoard[2][1] = "X"
+                    list.remove(7)
                     checkWinner()
                 }
                 R.id.Button9_M -> {
@@ -161,6 +176,7 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
                         isEnabled = false
                     }
                     charBoard[2][2] = "X"
+                    list.remove(8)
                     checkWinner()
                 }
 
@@ -169,13 +185,19 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
 
             if(isMovesLeft())
             {
-
-                val move : Move = findBestMove()
-                charBoard[move.row][move.col] = "O"
-                board[move.row][move.col].apply {
-                    text = "O"
-                    isEnabled = false
-                }
+                   val move : Move = if(gameDifficulty=="beginner")
+                   {
+                       getRandomMove()
+                   }
+                  else
+                   {
+                       findBestMove()
+                   }
+                   charBoard[move.row][move.col] = "O"
+                   board[move.row][move.col].apply {
+                       text = "O"
+                       isEnabled = false
+                   }
                 checkWinner()
 
             }
@@ -331,6 +353,77 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
             return best
         }
 
+    }
+
+    private fun getRandomMove() : Move
+    {
+
+        val randomMove = Move()
+        randomMove.row = -1
+        randomMove.col = -1
+
+        val e = list.random()
+        list.remove(e)
+        when(e)
+        {
+            0 ->
+            {
+                randomMove.row = 0
+                randomMove.col = 0
+
+            }
+
+            1 ->
+            {
+                randomMove.row = 0
+                randomMove.col = 1
+            }
+
+            2 ->
+            {
+                randomMove.row = 0
+                randomMove.col = 2
+            }
+
+            3 ->
+            {
+                randomMove.row = 1
+                randomMove.col = 0
+            }
+
+            4 ->
+            {
+                randomMove.row = 1
+                randomMove.col = 1
+            }
+
+            5 ->
+            {
+                randomMove.row = 1
+                randomMove.col = 2
+            }
+
+            6 ->
+            {
+                randomMove.row = 2
+                randomMove.col = 0
+            }
+
+            7 ->
+            {
+                randomMove.row = 2
+                randomMove.col = 1
+            }
+
+            8 ->
+            {
+                randomMove.row = 2
+                randomMove.col = 2
+            }
+
+        }
+
+        return randomMove
     }
 
     private fun findBestMove() : Move

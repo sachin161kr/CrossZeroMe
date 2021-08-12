@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import kotlinx.android.synthetic.main.fragment_welcome_screen.*
@@ -47,11 +48,13 @@ class welcomeScreen : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_welcome_screen, container, false)
         view.multiPlayer.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_welcomeScreen_to_nameSelectionScreen)
+            val bundle = bundleOf("buttonselected" to "multiPlayer")
+            Navigation.findNavController(view).navigate(R.id.action_welcomeScreen_to_preferences,bundle)
         }
 
         view.singlePlayer.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_welcomeScreen_to_multiplayer_AI)
+            val bundle = bundleOf("buttonselected" to "singlePlayer")
+            Navigation.findNavController(view).navigate(R.id.action_welcomeScreen_to_preferences,bundle)
         }
         return view
     }
