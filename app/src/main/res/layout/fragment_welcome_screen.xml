@@ -43,7 +43,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/gmail"
@@ -52,7 +54,6 @@
             android:src="@drawable/gmail2"
             android:adjustViewBounds="true"
             android:layout_gravity="bottom"
-            android:layout_marginLeft="120dp"
             android:layout_marginBottom="80dp"
             />
 
@@ -61,7 +62,6 @@
             android:layout_width="wrap_content"
             android:layout_height="85dp"
             android:layout_gravity="bottom"
-            android:layout_marginLeft="40dp"
             android:layout_marginBottom="71dp"
             android:adjustViewBounds="true"
             android:src="@drawable/linkedin" />
