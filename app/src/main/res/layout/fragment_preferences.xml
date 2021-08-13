@@ -2,17 +2,30 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/blue"
     android:layout_height="match_parent"
     tools:context=".Preferences">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:src="@drawable/difficulty"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_height="200dp"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="50dp"
         android:textSize="30sp"
         android:layout_gravity="center_horizontal"
         android:text="Select Difficulty Level" />
+
+    <ImageView
+        android:src="@drawable/gameboard"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:adjustViewBounds="true"
+        android:layout_gravity="center_horizontal"
+        android:text="Gameboard Size"
+        android:textSize="30sp"
+        android:layout_marginTop="280dp"/>
 
     <RadioGroup
         android:id="@+id/difficulty"
@@ -24,35 +37,36 @@
         <RadioButton
             android:id="@+id/beginner"
             android:checked="true"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="Beginner"
+            android:textAllCaps="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Beginner"
-            android:textSize="25sp"
+            android:textSize="35sp"
             />
+
 
         <RadioButton
             android:id="@+id/jod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="I am Jod"
-            android:textSize="25sp"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="35sp"
             />
 
 
     </RadioGroup>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Gameboard Size"
-        android:textSize="30sp"
-        android:layout_marginTop="350dp"/>
+
 
     <RadioGroup
         android:id="@+id/gameboardsize"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="410dp"
+        android:layout_marginTop="430dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -62,7 +76,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="3 X 3"
-            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="35sp"
             />
 
         <RadioButton
@@ -70,16 +86,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="5 X 5"
-            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="35sp"
             />
 
 
     </RadioGroup>
 
-    <Button
+    <ImageView
         android:id="@+id/preferencesSelected"
+        android:src="@drawable/continuebtn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
+        android:adjustViewBounds="true"
         android:text="CONTINUE"
         android:textColor="@color/white"
         android:textSize="30sp"

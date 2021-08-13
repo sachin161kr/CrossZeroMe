@@ -63,7 +63,9 @@
         android:layout_marginLeft="20dp"
         />
 
-    <Button
+    <ImageView
+        android:src="@drawable/startbtn"
+        android:adjustViewBounds="true"
         android:id="@+id/start_button"
         android:layout_width="280dp"
         android:layout_marginTop="450dp"
