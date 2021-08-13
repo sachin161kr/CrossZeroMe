@@ -44,13 +44,21 @@ class NameSelectionScreen : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_name_selection_screen, container, false)
 
-
+        val boardtype = arguments?.getString("boardtype")
 
         view.start_button.setOnClickListener {
             if(view.name_playerX.text.length !=0 && view.name_playerO.text.length!=0)
             {
                 val bundle = bundleOf("playerX" to view.name_playerX.text.toString() , "playerO" to view.name_playerO.text.toString())
-                Navigation.findNavController(view).navigate(R.id.action_nameSelectionScreen_to_gameFragment,bundle)
+
+                if(boardtype=="small")
+                {
+                    Navigation.findNavController(view).navigate(R.id.action_nameSelectionScreen_to_gameFragment,bundle)
+                }
+                else
+                {
+                    Navigation.findNavController(view).navigate(R.id.action_nameSelectionScreen_to_singlePlayer_5x5,bundle)
+                }
             }
             else {
                 Toast.makeText(activity,"Player names cannot be empty!",Toast.LENGTH_SHORT).show()

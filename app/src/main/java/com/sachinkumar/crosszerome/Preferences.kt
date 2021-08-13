@@ -42,68 +42,72 @@ class Preferences : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_preferences, container, false)
 
-
-        view.smallboard.isSelected = true
-        view.beginner.isSelected = true
-        view.jod.isSelected = false
-        view.largeboard.isSelected = false
-
         val playertype = arguments?.getString("buttonselected")
 
 
-        if(playertype=="multiPlayer")
+
+        if(playertype=="singlePlayer")
+        {
+            view.smallboard.isEnabled = false
+            view.largeboard.isEnabled = false
+
+            view.beginner.isSelected = true
+            view.jod.isSelected = false
+        }
+        else
         {
             view.beginner.isEnabled = false
             view.jod.isEnabled = false
+
+            view.smallboard.isSelected = true
+            view.largeboard.isSelected = false
         }
 
         view.beginner.setOnClickListener {
             beginner.isSelected = true
-            Log.println(Log.DEBUG,"beginner is selected","true")
             jod.isSelected = false
         }
 
         view.jod.setOnClickListener {
             jod.isSelected = true
-            Log.println(Log.DEBUG,"jod is selected","true")
             beginner.isSelected = false
         }
 
         view.smallboard.setOnClickListener {
             smallboard.isSelected = true
-            Log.println(Log.DEBUG,"smallboard is selected","true")
             largeboard.isSelected = false
         }
 
         view.largeboard.setOnClickListener {
             largeboard.isSelected = true
-            Log.println(Log.DEBUG,"largeboard is selected","true")
             smallboard.isSelected = false
         }
 
 
 
+
+
         view.preferencesSelected.setOnClickListener {
-            if(view.beginner.isSelected && view.smallboard.isSelected && playertype=="singlePlayer")
+            if(view.beginner.isSelected)
             {
                 Log.println(Log.DEBUG,"Choosen","1")
                 val bundle = bundleOf("difficulty" to "beginner")
                 Navigation.findNavController(view).navigate(R.id.action_preferences_to_multiplayer_AI,bundle)
             }
-            else if(view.jod.isSelected && view.smallboard.isSelected && playertype=="singlePlayer")
+            else if(view.jod.isSelected)
             {  Log.println(Log.DEBUG,"Choosen","2")
                 val bundle = bundleOf("difficulty" to "jod")
                 Navigation.findNavController(view).navigate(R.id.action_preferences_to_multiplayer_AI,bundle)
             }
-//            else if(view.smallboard.isSelected && playertype=="multiPlayer")
-//            {
-//                Log.println(Log.DEBUG,"Choosen","3")
-//                Navigation.findNavController(view).navigate(R.id.action_preferences_to_nameSelectionScreen)
-//            }
-//            else if(view.largeboard.isSelected && playertype=="multiPlayer")
-//            {
+            else if(view.smallboard.isSelected)
+            {   val bundle = bundleOf("boardtype" to "small")
+                Navigation.findNavController(view).navigate(R.id.action_preferences_to_nameSelectionScreen,bundle)
+            }
+            else if(view.largeboard.isSelected)
+            {   val bundle = bundleOf("boardtype" to "large")
+                Navigation.findNavController(view).navigate(R.id.action_preferences_to_nameSelectionScreen,bundle)
+            }
 //
-//            }
         }
 
         return view

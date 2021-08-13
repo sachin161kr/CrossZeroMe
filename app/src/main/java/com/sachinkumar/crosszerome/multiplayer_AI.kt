@@ -11,10 +11,6 @@ import kotlinx.android.synthetic.main.fragment_game.view.*
 import kotlinx.android.synthetic.main.fragment_multiplayer__a_i.view.*
 import kotlinx.android.synthetic.main.fragment_preferences.*
 
-class Move {
-    var row : Int = 0
-    var col : Int = 0
-}
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
