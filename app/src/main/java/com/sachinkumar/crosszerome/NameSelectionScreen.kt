@@ -1,6 +1,7 @@
 package com.sachinkumar.crosszerome
 
 import android.app.Activity
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -43,10 +44,11 @@ class NameSelectionScreen : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_name_selection_screen, container, false)
-
+        var mediaPlayer = MediaPlayer.create(context,R.raw.buttonclicksound)
         val boardtype = arguments?.getString("boardtype")
 
         view.start_button.setOnClickListener {
+            mediaPlayer.start()
             if(view.name_playerX.text.length !=0 && view.name_playerO.text.length!=0)
             {
                 val bundle = bundleOf("playerX" to view.name_playerX.text.toString() , "playerO" to view.name_playerO.text.toString())

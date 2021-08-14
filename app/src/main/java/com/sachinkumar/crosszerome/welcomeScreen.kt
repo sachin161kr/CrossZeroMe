@@ -1,6 +1,7 @@
 package com.sachinkumar.crosszerome
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -28,6 +29,10 @@ class welcomeScreen : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    //var startSound = MediaPlayer.create(context,R.raw.drums)
+    lateinit var mediaPlayer : MediaPlayer
+    lateinit var startSound : MediaPlayer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,7 +40,10 @@ class welcomeScreen : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
 
-        
+        mediaPlayer = MediaPlayer.create(context,R.raw.buttonclicksound)
+        startSound = MediaPlayer.create(context,R.raw.bgsound)
+
+        startSound.isLooping = true
 
 
     }
@@ -46,21 +54,53 @@ class welcomeScreen : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
+
+
+
         val view = inflater.inflate(R.layout.fragment_welcome_screen, container, false)
         view.multiPlayer.setOnClickListener {
+            //startSound.pause()
+            mediaPlayer.start()
             val bundle = bundleOf("buttonselected" to "multiPlayer")
             Navigation.findNavController(view).navigate(R.id.action_welcomeScreen_to_preferences,bundle)
         }
 
+        view.exit_btn.setOnClickListener {
+            activity?.finish()
+        }
+
         view.singlePlayer.setOnClickListener {
+            //startSound.pause()
+            mediaPlayer.start()
             val bundle = bundleOf("buttonselected" to "singlePlayer")
             Navigation.findNavController(view).navigate(R.id.action_welcomeScreen_to_preferences,bundle)
         }
         return view
     }
 
+    override fun onStart() {
+        super.onStart()
+        startSound.start()
+    }
+
+//    override fun onStop() {
+//        super.onStop()
+//        startSound.start()
+//    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        startSound.stop()
+    }
+
+
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
 
         gmail.setOnClickListener {

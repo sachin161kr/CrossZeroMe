@@ -1,6 +1,8 @@
 package com.sachinkumar.crosszerome
 
+import android.media.MediaPlayer
 import android.os.Bundle
+import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +27,8 @@ class GameFragment : Fragment() , View.OnClickListener{
     private var param1: String? = null
     private var param2: String? = null
 
+    lateinit var winSound : MediaPlayer
+    lateinit var loseSound : MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +36,9 @@ class GameFragment : Fragment() , View.OnClickListener{
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+        winSound = MediaPlayer.create(context,R.raw.winsound)
+        loseSound = MediaPlayer.create(context,R.raw.losesound)
 
 
         playerName1 = arguments?.getString("playerX").toString()
@@ -59,7 +66,7 @@ class GameFragment : Fragment() , View.OnClickListener{
         // Inflate the layout for this fragment
 
         val view = inflater.inflate(R.layout.fragment_game, container, false)
-
+        var mediaPlayer = MediaPlayer.create(context,R.raw.buttonclicksound)
         val firstTxt = arguments?.getString("playerX")
 
 
@@ -81,6 +88,7 @@ class GameFragment : Fragment() , View.OnClickListener{
 
 
         view.resetButton.setOnClickListener {
+            mediaPlayer.start()
             initializeBoardStatus()
             PLAYER = true
             TURN_COUNT = 0
@@ -149,6 +157,7 @@ class GameFragment : Fragment() , View.OnClickListener{
 
             if (TURN_COUNT == 9) {
                 updateDisplay("Game Draw")
+                loseSound.start()
             }
 
             checkWinner()
@@ -248,7 +257,7 @@ class GameFragment : Fragment() , View.OnClickListener{
         requireView().displayTv.text = s
         if(s.contains("Won"))
         {
-
+            winSound.start()
             disableAll()
         }
     }

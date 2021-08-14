@@ -1,5 +1,6 @@
 package com.sachinkumar.crosszerome
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,12 +26,18 @@ class singlePlayer_5x5 : Fragment() , View.OnClickListener{
     private var param1: String? = null
     private var param2: String? = null
 
+    lateinit var winSound : MediaPlayer
+    lateinit var loseSound : MediaPlayer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+        winSound = MediaPlayer.create(context,R.raw.winsound)
+        loseSound = MediaPlayer.create(context,R.raw.losesound)
 
         playerName1 = arguments?.getString("playerX").toString()
         playerName2 = arguments?.getString("playerO").toString()
@@ -60,6 +67,7 @@ class singlePlayer_5x5 : Fragment() , View.OnClickListener{
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_single_player_5x5, container, false)
         //gameDifficulty = arguments?.getString("difficulty")
+        var mediaPlayer = MediaPlayer.create(context,R.raw.buttonclicksound)
         val firstTxt = arguments?.getString("playerX")
         view.displayTv_5x5.text = "${firstTxt}'s Turn"
 
@@ -80,6 +88,7 @@ class singlePlayer_5x5 : Fragment() , View.OnClickListener{
         initializeBoardStatus()
 
         view.resetButton_5x5.setOnClickListener {
+            mediaPlayer.start()
             initializeBoardStatus()
             PLAYER = true
             TURN_COUNT = 0
@@ -200,6 +209,7 @@ class singlePlayer_5x5 : Fragment() , View.OnClickListener{
             }
 
             if (TURN_COUNT == 25) {
+                loseSound.start()
                 updateDisplay("Game Draw")
             }
 
@@ -298,6 +308,7 @@ class singlePlayer_5x5 : Fragment() , View.OnClickListener{
         if(s.contains("Won"))
         {
             disableAll()
+            winSound.start()
         }
 
     }

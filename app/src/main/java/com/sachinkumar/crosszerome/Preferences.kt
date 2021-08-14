@@ -1,5 +1,6 @@
 package com.sachinkumar.crosszerome
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -41,6 +42,8 @@ class Preferences : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_preferences, container, false)
+
+        var mediaPlayer = MediaPlayer.create(context,R.raw.buttonclicksound)
 
         val playertype = arguments?.getString("buttonselected")
 
@@ -88,6 +91,7 @@ class Preferences : Fragment() {
 
 
         view.preferencesSelected.setOnClickListener {
+            mediaPlayer.start()
             if(view.beginner.isSelected)
             {
                 Log.println(Log.DEBUG,"Choosen","1")

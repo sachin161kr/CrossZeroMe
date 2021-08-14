@@ -16,29 +16,27 @@
         android:src="@drawable/welcometext"
 
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="40dp"
         />
 
     <ImageView
-        android:src="@drawable/singleplayer1"
         android:id="@+id/singlePlayer"
-        android:adjustViewBounds="true"
-        android:layout_width="wrap_content"
-        android:layout_height="180dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="300dp"
-        />
+        android:layout_marginTop="290dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/singleplayer1" />
 
     <ImageView
-        android:src="@drawable/multiplayer1"
         android:id="@+id/multiPlayer"
-        android:adjustViewBounds="true"
-        android:layout_width="wrap_content"
-        android:layout_height="180dp"
+        android:layout_width="406dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="400dp"
-        android:text="Multi-Player"
-        />
+        android:layout_marginTop="410dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/multiplayer1"
+        android:text="Multi-Player" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,5 +63,16 @@
             android:adjustViewBounds="true"
             android:src="@drawable/linkedin" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/exit_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EXIT GAME"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="550dp"/>
 
 </FrameLayout>

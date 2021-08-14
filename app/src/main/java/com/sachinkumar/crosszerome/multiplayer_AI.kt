@@ -1,5 +1,6 @@
 package com.sachinkumar.crosszerome
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,6 +28,9 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
     private var param1: String? = null
     private var param2: String? = null
 
+    lateinit var winSound : MediaPlayer
+    lateinit var loseSound : MediaPlayer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,6 +38,8 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
             param2 = it.getString(ARG_PARAM2)
         }
 
+        winSound = MediaPlayer.create(context,R.raw.winsound)
+        loseSound = MediaPlayer.create(context,R.raw.losesound)
 
     }
 
@@ -50,6 +56,7 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_multiplayer__a_i, container, false)
+        var mediaPlayer = MediaPlayer.create(context,R.raw.buttonclicksound)
         gameDifficulty = arguments?.getString("difficulty")
         view.displayTv_M.text = "You vs Computer"
 
@@ -65,6 +72,7 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
         }
 
         view.resetButton_M.setOnClickListener {
+           mediaPlayer.start()
             for(i in 0..2)
             {
                 for(j in 0..2)
@@ -198,6 +206,7 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
 
             }
             else {
+                loseSound.start()
                 requireView().displayTv_M.text = "Game Draw"
                 disableAll()
             }
@@ -268,8 +277,21 @@ class multiplayer_AI : Fragment() , View.OnClickListener {
         requireView().displayTv_M.text = s
         if(s.contains("Won"))
         {
+            if(s=="You Won")
+            {
+                winSound.start()
+
+            }
+            else
+            {
+                loseSound.start()
+
+            }
+
             disableAll()
         }
+
+
 
     }
 
