@@ -10,22 +10,20 @@
     <ImageView
         android:src="@drawable/difficulty"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:layout_marginTop="50dp"
-        android:textSize="30sp"
         android:layout_gravity="center_horizontal"
-        android:text="Select Difficulty Level" />
+         />
 
     <ImageView
-        android:src="@drawable/gameboard"
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:adjustViewBounds="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Gameboard Size"
-        android:textSize="30sp"
-        android:layout_marginTop="280dp"/>
+        android:layout_marginTop="280dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/gameboard"
+         />
 
     <RadioGroup
         android:id="@+id/difficulty"
@@ -98,7 +96,7 @@
         android:id="@+id/preferencesSelected"
         android:src="@drawable/continuebtn"
         android:layout_width="wrap_content"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:text="CONTINUE"
         android:textColor="@color/white"

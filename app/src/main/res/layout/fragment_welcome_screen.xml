@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
         android:adjustViewBounds="true"
 
         android:src="@drawable/welcometext"
@@ -30,7 +30,7 @@
 
     <ImageView
         android:id="@+id/multiPlayer"
-        android:layout_width="406dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="410dp"
@@ -51,7 +51,7 @@
             android:src="@drawable/gmail2"
             android:adjustViewBounds="true"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="80dp"
+            android:layout_marginBottom="50dp"
             />
 
         <ImageView
@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="85dp"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="71dp"
+            android:layout_marginBottom="41dp"
             android:adjustViewBounds="true"
             android:src="@drawable/linkedin" />
     </LinearLayout>

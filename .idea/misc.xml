@@ -3,13 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidD/CrossZeroMe/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18725868725868725" />
+        <entry key="..\:/AndroidD/CrossZeroMe/app/src/main/res/drawable/ic_launcher_background.xml" value="0.18725868725868725" />
         <entry key="..\:/AndroidD/CrossZeroMe/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/AndroidD/CrossZeroMe/app/src/main/res/layout/fragment_game.xml" value="0.2" />
-        <entry key="..\:/AndroidD/CrossZeroMe/app/src/main/res/layout/fragment_multiplayer__a_i.xml" value="0.23645833333333333" />
-        <entry key="..\:/AndroidD/CrossZeroMe/app/src/main/res/layout/fragment_name_selection_screen.xml" value="0.23645833333333333" />
-        <entry key="..\:/AndroidD/CrossZeroMe/app/src/main/res/layout/fragment_preferences.xml" value="0.23645833333333333" />
+        <entry key="..\:/AndroidD/CrossZeroMe/app/src/main/res/layout/fragment_game.xml" value="0.136" />
+        <entry key="..\:/AndroidD/CrossZeroMe/app/src/main/res/layout/fragment_multiplayer__a_i.xml" value="0.152" />
+        <entry key="..\:/AndroidD/CrossZeroMe/app/src/main/res/layout/fragment_name_selection_screen.xml" value="0.136" />
+        <entry key="..\:/AndroidD/CrossZeroMe/app/src/main/res/layout/fragment_preferences.xml" value="0.136" />
         <entry key="..\:/AndroidD/CrossZeroMe/app/src/main/res/layout/fragment_single_player_5x5.xml" value="0.176" />
-        <entry key="..\:/AndroidD/CrossZeroMe/app/src/main/res/layout/fragment_welcome_screen.xml" value="0.2" />
+        <entry key="..\:/AndroidD/CrossZeroMe/app/src/main/res/layout/fragment_welcome_screen.xml" value="0.152" />
+        <entry key="..\:/AndroidD/CrossZeroMe/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.18725868725868725" />
       </map>
     </option>
   </component>
